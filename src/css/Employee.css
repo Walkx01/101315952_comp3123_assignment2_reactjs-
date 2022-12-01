@@ -1,0 +1,31 @@
+#emp-container{
+    width: 1200px;
+    height: 1000px;
+    padding: 3%;
+}
+
+#emp-top{
+   display: flex;
+  
+ justify-content: space-between;
+}
+
+#emp-bottom{
+    margin-top: 5%;
+ 
+}
+
+#emp-top-right{
+    align-self: center;
+}
+#emp-action{
+    display: flex;
+    width: 100%;
+  justify-content: space-between;
+  padding: 0;
+    
+}
+
+#emp-action button {
+    width: 46%;
+}
