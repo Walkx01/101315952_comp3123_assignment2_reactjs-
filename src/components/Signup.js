@@ -17,7 +17,9 @@ export default class SignUp extends Component {
                 <div id="go-under"></div>
                 <h3>Register Today </h3>
                 <h3>Manage company employees efficiently</h3>
-                <p>Let's get you all set up by making your new profile </p>
+                <p id="mean">
+                  Let's get you all set up by making your new profile{" "}
+                </p>
               </div>
 
               <div id="bottom-form">

@@ -15,7 +15,7 @@ export default class Login extends Component {
         <div id="right-side">
           <div id="form-container">
             <form id="login-myform">
-              <div id="top-form">
+              <div id="login-top-form">
                 <h3>Start managing company employees efficiently</h3>
                 <img id="icon" src={icon} alt="" />
               </div>

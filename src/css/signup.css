@@ -85,6 +85,11 @@ body{
 #top-form{
     font-size: 1.5rem;
     height: 35%;
+    background-color: #497083;
+    border-radius: 2%;
+box-shadow: 114px 2px 62px -93px rgba(0, 0, 0, 0.74);
+    color: whitesmoke;
+    
 }
 
 
@@ -118,3 +123,9 @@ button{
     
 }
 
+
+#mean{
+    margin-top: 5%;
+
+        border-radius: 5%;
+}
