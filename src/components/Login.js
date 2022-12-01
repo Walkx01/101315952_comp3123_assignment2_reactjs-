@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import styles from "../css/login.css";
+import account from "./account.png";
+import anim from "./icons8.gif";
+import icon from "./icon9.png";
 export default class Login extends Component {
   render() {
     return (
@@ -11,13 +14,10 @@ export default class Login extends Component {
 
         <div id="right-side">
           <div id="form-container">
-            <form id="myform">
+            <form id="login-myform">
               <div id="top-form">
-                <div id="go-under"></div>
-
                 <h3>Start managing company employees efficiently</h3>
-
-                <img src="" alt="" />
+                <img id="icon" src={icon} alt="" />
               </div>
 
               <div id="bottom-form">
