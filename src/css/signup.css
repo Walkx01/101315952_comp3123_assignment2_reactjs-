@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500&family=Karla:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+
+html {
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    color  : #296E85
+
+}
+
+body{
+    background-color: #F9F6F0;
+}
+
+
+#signup-container{
+    display: flex;
+    height : 900px;
+    width:  1200px;
+    background-color: #F9F6F0;
+    color : #122620;
+   
+    
+
+}
+
+#left-side{
+    flex-basis :40%; 
+    background-image: url(../../public/img/ermployees1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    opacity: 0.8;
+    border-radius: 2%;
+   
+
+    
+}
+
+#left-side h4{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color :whitesmoke;
+    background-color: #122620;
+    margin-top: 50%;
+    padding-top:20% ;
+    opacity: 0.6;
+    height: 20%;
+
+}
+#right-side{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+    overflow: hidden;
+   
+
+}
+
+
+
+
+#form-left-side{
+   margin: 20px;
+    
+
+}
+
+#form-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+   
+   justify-content: center;
+   
+  
+
+}
+
+#myform{
+    display: flex;
+    flex-direction: column;
+   
+}
+#top-form{
+    font-size: 1.5rem;
+    height: 35%;
+    position: relative;
+}
+
+
+
+#top-form h3{
+    margin-top:20px ;
+   
+}
+
+#bottom-form{
+   width: 70%;
+   margin-left: 20%;
+   font-size: 1.2rem;
+   
+}
+#bottom-form label{
+
+    margin-top: 5%;
+}
+
+button{
+   width: 100%;
+   margin: auto;
+   background-color:#296E85 !important;
+}
+
+
+#link {
+    align-self: center;
+    margin-bottom: 40%;
+    
+}
+
