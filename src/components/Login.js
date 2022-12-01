@@ -1,48 +1,52 @@
 import React, { Component } from "react";
-import "../css/login.css";
+import styles from "../css/login.css";
 export default class Login extends Component {
   render() {
     return (
-      <div className="container">
-        <form className="myform">
-          <h3>Sign In</h3>
-          <div className="mb-3">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Enter email"
-            />
+      <div id="signup-container">
+        <div id="left-side">
+          <h4> MYco.ep</h4>
+          <h4>Hi there , we help you manage your employees</h4>
+        </div>
+
+        <div id="right-side">
+          <div id="form-container">
+            <form id="myform">
+              <div id="top-form">
+                <div id="go-under"></div>
+
+                <h3>Start managing company employees efficiently</h3>
+              </div>
+
+              <div id="bottom-form">
+                <label>user name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="user name "
+                />
+
+                <div className="mb-3">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Enter password"
+                  />
+                </div>
+
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-primary">
+                    Log in Now
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-          <div className="mb-3">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-            />
-          </div>
-          <div className="mb-3">
-            <div className="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                className="custom-control-input"
-                id="customCheck1"
-              />
-              <label className="custom-control-label" htmlFor="customCheck1">
-                Remember me
-              </label>
-            </div>
-          </div>
-          <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-          <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
+          <p id="link">
+            Don't have an account ? <a href=""> Sign Up !</a>
           </p>
-        </form>
+        </div>
       </div>
     );
   }

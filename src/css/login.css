@@ -1,6 +1,7 @@
-/* .myform{
-    width: 500px;
-    height: 500px;
+ #login-right-side{
    
-} */
-
+display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+    overflow: hidden;
+} 
