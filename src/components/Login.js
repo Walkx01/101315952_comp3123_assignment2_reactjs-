@@ -16,6 +16,8 @@ export default class Login extends Component {
                 <div id="go-under"></div>
 
                 <h3>Start managing company employees efficiently</h3>
+
+                <img src="" alt="" />
               </div>
 
               <div id="bottom-form">
