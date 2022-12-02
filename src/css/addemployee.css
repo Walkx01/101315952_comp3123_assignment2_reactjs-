@@ -1,10 +1,17 @@
 #add-emp-container{
     display: flex;
     flex-direction: column;
-    border: 5px solid  red;
     height: 700px;
    
   
+}
+
+#add-emp-container #top svg{
+  transform: scale(4.0);
+ margin-left: 48%;
+ margin-top: 5%;
+
+
 }
 
 #add-emp-form{
@@ -17,15 +24,29 @@
 
 #add-emp-form label {
     margin: 2%;
+    margin-right: 45%;
+    
    
 }
 
+
 #add-emp-form input{
     width: 50%;
+    border-bottom: 2px solid black;
    
 }
+
+
 
 #add-emp-form button{
     margin-top: 4%;
     width: 50%;
 }
+
+ #add-emp-container h3 {
+     background-color: #296E85;
+     padding: auto;
+     border-radius: 10%;
+    padding-left: 35%;
+    
+ }
