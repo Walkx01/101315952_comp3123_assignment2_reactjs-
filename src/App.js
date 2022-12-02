@@ -6,13 +6,14 @@ import SignUp from "./components/Signup";
 import Employee from "./components/Employee";
 import AddEmployee from "./components/AddEmployee";
 import Error from "./components/Error";
+import axios from "axios";
+import { useState } from "react";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route index element={<Login />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="employees" element={<Employee />} />

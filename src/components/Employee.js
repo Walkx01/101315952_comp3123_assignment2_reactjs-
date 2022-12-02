@@ -13,7 +13,7 @@ export default function Employee({ employee_list }) {
             <h6>Manage all your existing employees or add new employee </h6>
           </div>
           <div id="emp-top-right">
-            <Link id="linkbtn" to="addemployee">
+            <Link className="btn btn-primary" id="linkbtn" to="/addemployee">
               add new Employee
             </Link>
           </div>
