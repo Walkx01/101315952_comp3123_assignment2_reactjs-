@@ -1,7 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import styles from "../css/login.css";
-import account from "./account.png";
-import anim from "./icons8.gif";
 import icon from "./icon9.png";
 export default class Login extends Component {
   render() {
@@ -39,14 +38,17 @@ export default class Login extends Component {
 
                 <div className="d-grid">
                   <button type="submit" className="btn btn-primary">
-                    Log in Now
+                    <Link id="linkbtn" to="/employees">
+                      {" "}
+                      Log in Now
+                    </Link>
                   </button>
                 </div>
               </div>
             </form>
           </div>
           <p id="link">
-            Don't have an account ? <a href=""> Sign Up !</a>
+            Don't have an account ? <Link to="/signup"> Sign Up !</Link>
           </p>
         </div>
       </div>

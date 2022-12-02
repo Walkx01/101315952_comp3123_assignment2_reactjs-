@@ -110,7 +110,7 @@ box-shadow: 114px 2px 62px -93px rgba(0, 0, 0, 0.74);
     margin-top: 5%;
 }
 
-button{
+button,#linkbtn{
    width: 100%;
    margin: auto;
    background-color:#296E85 !important;

@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Employee.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 export default function Employee({ employee_list }) {
   if (employee_list != null) {
@@ -12,7 +13,9 @@ export default function Employee({ employee_list }) {
             <h6>Manage all your existing employees or add new employee </h6>
           </div>
           <div id="emp-top-right">
-            <button className="btn btn-primary"> add new Employee</button>
+            <Link id="linkbtn" to="addemployee">
+              add new Employee
+            </Link>
           </div>
         </div>
         <div id="emp-bottom">
@@ -179,7 +182,10 @@ export default function Employee({ employee_list }) {
               looks like we don't have any employees in our system to display
             </h4>
             <h4>Start by adding an employee to start </h4>
-            <button className="btn btn-primary"> add new Employee</button>
+            {/* <button > add new Employee</button> */}
+            <Link className="btn btn-primary" id="linkbtn" to="/addemployee">
+              add new Employee
+            </Link>
           </div>
         </div>
       </div>
