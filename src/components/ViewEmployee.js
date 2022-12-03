@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
-export default function ViewEmployee(emp_id) {
+export default function ViewEmployee() {
   const [myemp, setMyEmp] = useState();
   const [isLoading, setLoading] = useState(true);
   const baseUrl =
     "https://101315952comp3123assignment1-production.up.railway.app/";
 
-  // get employeelist
+  const { id } = useParams();
+  const emp_id = id;
+  // get employee
 
-  const getEmpbyid = ( emp_id ) => {
-    console.log(emp_id);
+  useEffect(() => getEmpbyid(emp_id), []);
+  const getEmpbyid = (emp_id) => {
     const emp_by_id = `${baseUrl}api/emp/employees/${emp_id}`;
-    console.log("url:" + emp_by_id);
     axios
       .get(emp_by_id)
       .then((res) => {
@@ -24,7 +26,29 @@ export default function ViewEmployee(emp_id) {
         console.log(error);
       });
   };
-  getEmpbyid(emp_id);
 
-  isLoading ? <div>loading</div> : <div> i am employee details</div>;
+  if (isLoading) {
+    return <div> loading please wait or refresh</div>;
+  }
+  return (
+    <>
+      <h3>Employee details</h3>
+      <table className="table table-striped">
+        <thead className="thead-dark">
+          <tr>
+            <th scope="col">Firstname</th>
+            <td>{myemp.first_name}</td>
+          </tr>
+          <tr>
+            <th scope="col">LastName</th>
+            <td>{myemp.last_name}</td>
+          </tr>
+          <tr>
+            <th scope="col">Email</th>
+            <td>{myemp.email}</td>
+          </tr>
+        </thead>
+      </table>
+    </>
+  );
 }

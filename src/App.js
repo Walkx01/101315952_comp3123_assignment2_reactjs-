@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import SignUp from "./components/Signup";
 import Employee from "./components/Employee";
 import AddEmployee from "./components/AddEmployee";
+import UpdateEMployee from "./components/UpdateEmployee";
+import ViewEmployee from "./components/ViewEmployee";
 import Error from "./components/Error";
 import Test from "./components/Test";
 import { UserContext } from "./components/userContext";
@@ -21,6 +23,8 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="employees" element={<Employee />} />
           <Route path="addemployee" element={<AddEmployee />} />
+          <Route path="updateemployee" element={<UpdateEMployee />} />
+          <Route path="viewemployee/:id" element={<ViewEmployee />} />
           <Route path="test" element={<Test />} />
           <Route path="*" element={<Error />} />
         </Routes>

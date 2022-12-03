@@ -31,7 +31,8 @@ export default function Employee() {
     console.log("id is" + id);
     idselected = id;
     console.log("state value is" + idselected);
-    setviewEmpDetail(true);
+    // setviewEmpDetail(true);
+    navigate(`/viewemployee/${id}`);
   };
 
   const deleteEmpBId = (id) => {
@@ -118,7 +119,7 @@ export default function Employee() {
                       <td>{val.last_name}</td>
                       <td>{val.email}</td>
                       <td id="emp-action">
-                        <button>
+                        <button onClick={() => navigate("/updateemployee")}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
