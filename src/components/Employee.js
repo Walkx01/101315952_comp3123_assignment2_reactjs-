@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "./userContext";
 
-export default function Employee({ employee_list }) {
+export default function Employee(employeeList) {
   const user = useContext(UserContext);
-  if (employee_list != null) {
+  if (employeeList) {
     return (
       <div id="emp-container">
         <div id="emp-top">

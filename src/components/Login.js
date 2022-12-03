@@ -9,11 +9,10 @@ import { redirect } from "react-router-dom";
 import axios from "axios";
 
 export default function Login() {
-  const user = useContext(UserContext);
+  const { loggedIn, setLoggedIn } = useContext(UserContext);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
 
   async function Login(username, password) {
     const baseUrl =
@@ -53,7 +52,7 @@ export default function Login() {
     if (loggedIn) {
       navigate("/employees");
     }
-  }, []);
+  });
 
   return (
     <div id="signup-container">

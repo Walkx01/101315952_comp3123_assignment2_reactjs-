@@ -7,13 +7,14 @@ import Employee from "./components/Employee";
 import AddEmployee from "./components/AddEmployee";
 import Error from "./components/Error";
 import Test from "./components/Test";
-import axios from "axios";
 import { UserContext } from "./components/userContext";
+import { useState } from "react";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <BrowserRouter>
-      <UserContext.Provider value="false">
+      <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="login" element={<Login />} />
