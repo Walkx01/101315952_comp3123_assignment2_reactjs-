@@ -9,12 +9,13 @@ import { redirect } from "react-router-dom";
 import axios from "axios";
 
 export default function Login() {
+  const [user, setUser] = useState();
   const { loggedIn, setLoggedIn } = useContext(UserContext);
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setLoading] = useState(true);
 
-  async function Login(username, password) {
+  async function Loginuser(username, password) {
     const baseUrl =
       "https://101315952comp3123assignment1-production.up.railway.app/";
     const signin = `${baseUrl}api/user/login`;
@@ -24,7 +25,16 @@ export default function Login() {
         password: password,
       })
       .then((res) => {
-        setLoggedIn(res.data.status);
+        {
+          !res.data.status ? alert(res.data.message) : setUser(res.data);
+          // store the user in localStorage
+          if (res.data.status) {
+            setLoggedIn(true);
+            localStorage.setItem("user", JSON.stringify(res.data));
+            console.log("logged in successfully from function");
+          }
+        }
+        setLoading(false);
       })
       .catch((error) => {
         alert("oh oh.. somethin went wrong " + error.response.data.message);
@@ -34,25 +44,31 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (username && password) {
-      Login(username, password);
-      console.log("i logged in ?", loggedIn);
-      if (loggedIn) {
-        navigate("/employees");
-      }
+      Loginuser(username, password);
     } else {
       alert("fields cannot be empty");
     }
   };
 
-  // if user is already logged in but navigate to login page redirect to home/employee page
-  const navigate = useNavigate();
+  // Check if a user has previously logged in localstorage each time app loads
   useEffect(() => {
-    if (loggedIn) {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = loggedInUser;
+      setLoggedIn(true);
+      setUser(foundUser);
+    }
+  }, []);
+
+  //  redirect to employees page if logged in
+  {
+    const navigate = useNavigate();
+    if (user) {
+      console.log(" yoi are logged in trying to redirect");
       navigate("/employees");
     }
-  });
+  }
 
   return (
     <div id="signup-container">
