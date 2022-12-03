@@ -55,18 +55,22 @@ export default function Employee() {
       .catch((error) => {
         console.log(error);
       });
-  }, [employeeList]);
+  }, []);
 
   const loggedInUser = localStorage.getItem("user");
+
   if (isLoading) {
     return <div> loading.... if more than 5sec please refresh</div>;
   }
   if (loggedInUser) {
+    const jsonusr = JSON.parse(loggedInUser);
+    console.log(jsonusr.username);
     if (employeeList) {
       return (
         <div id="emp-container">
           <div id="emp-top">
             <div id="emp-top-left">
+              <h3> Welcome {jsonusr.username}</h3>
               <h2>Employee Management</h2>
               <h5>
                 Manage all your existing employees or

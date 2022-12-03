@@ -65,7 +65,6 @@ export default function Login() {
   {
     const navigate = useNavigate();
     if (user) {
-      console.log(" yoi are logged in trying to redirect");
       navigate("/employees");
     }
   }

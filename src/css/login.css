@@ -16,7 +16,7 @@
 
 
 
- #login-myform h3{
+ #login-myform h3,#emp-top-left h3{
     background-color: #296E85;
     padding: auto;
     border-radius: 10%;
