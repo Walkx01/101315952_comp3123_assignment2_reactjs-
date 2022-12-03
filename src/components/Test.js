@@ -18,21 +18,26 @@ export default function Test() {
       });
   }
 
-  async function signup() {
-    const signup = `${baseUrl}api/user/signup`;
+   function Login(username, password) {
+    const baseUrl =
+      "https://101315952comp3123assignment1-production.up.railway.app/";
+    const signin = `${baseUrl}api/user/login`;
     axios
-      .post(signup, {
-        username: "Walker",
-        password: "Helloworld",
+      .post(signin, {
+        username: username,
+        password: password,
       })
       .then((res) => {
-        console.log(res.data);
+        return res.data.status;
       })
       .catch((error) => {
-        console.log(error);
+        console.log("oh oh.. somethin went wrong " + error);
+        return false;
       });
   }
-  signup();
+  const result = Login("Mary Jane", "maryjanepassword");
+  console.log(result);
+
   return (
     <>
       <h1> I am test</h1>

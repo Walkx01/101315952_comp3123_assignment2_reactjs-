@@ -6,6 +6,7 @@ import icon from "./icon9.png";
 import { useState } from "react";
 import { UserContext } from "./userContext";
 import { redirect } from "react-router-dom";
+import axios from "axios";
 
 export default function Login() {
   const user = useContext(UserContext);
@@ -14,13 +15,35 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
+  async function Login(username, password) {
+    const baseUrl =
+      "https://101315952comp3123assignment1-production.up.railway.app/";
+    const signin = `${baseUrl}api/user/login`;
+    axios
+      .post(signin, {
+        username: username,
+        password: password,
+      })
+      .then((res) => {
+        setLoggedIn(res.data.status);
+      })
+      .catch((error) => {
+        alert("oh oh.. somethin went wrong " + error.response.data.message);
+        console.log(error);
+      });
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username, password);
-    if (true) {
-      setLoggedIn = true;
+
+    if (username && password) {
+      Login(username, password);
+      console.log("i logged in ?", loggedIn);
+      if (loggedIn) {
+        navigate("/employees");
+      }
     } else {
-      alert("wrong user name or password");
+      alert("fields cannot be empty");
     }
   };
 
@@ -30,7 +53,7 @@ export default function Login() {
     if (loggedIn) {
       navigate("/employees");
     }
-  });
+  }, []);
 
   return (
     <div id="signup-container">
