@@ -1,45 +1,34 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Test() {
+export default function Test(eid) {
   const [isLoading, setLoading] = useState(true);
   const [user, setUser] = useState({ status: "", message: "", username: "" });
   const [loggedIn, setLoggedIn] = useState();
 
-  /* {
-  "first_name": "Jhon ",
-  "last_name": "doe",
-  email: jhondoeemailemployee@gmail.com,
-  gender: male ,
-  salary:50000.00,
-}*/
-  function addemployee(data) {
-    const baseUrl =
-      "https://101315952comp3123assignment1-production.up.railway.app/";
-    const signup = `${baseUrl}api/emp/employees`;
+  const baseUrl =
+    "https://101315952comp3123assignment1-production.up.railway.app/";
+
+  const [myemp, setMyEmp] = useState();
+  // get employeelist
+
+  const getEmpbyid = (eid) => {
+    const emp_by_id = `${baseUrl}api/emp/employees/${eid}`;
     axios
-      .post(signup, data)
+      .get(emp_by_id)
       .then((res) => {
-        alert(res.data);
+        setMyEmp(res.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
-  }
-
-  const data = {
-    first_name: "Walker",
-    last_name: "Altidor",
-    email: "dfsergdthfyg@gmail.co4",
-    gender: "Female",
-    salary: "23453",
   };
-
-  addemployee(data);
+  getEmpbyid("634f7782a1a5ff20797044b3");
 
   return (
     <>
-      {!isLoading && loggedIn ? <p> you are now logged in</p> : <></>}
+      {!isLoading ? myemp ? <p>{myemp}</p> : <p>not set</p> : <p>loading...</p>}
       <h1> I am test</h1>
     </>
   );
