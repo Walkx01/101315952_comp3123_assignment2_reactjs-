@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../css/Employee.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "./userContext";
 
 export default function Employee({ employee_list }) {
+  const user = useContext(UserContext);
   if (employee_list != null) {
     return (
       <div id="emp-container">
@@ -11,6 +13,7 @@ export default function Employee({ employee_list }) {
           <div id="emp-top-left">
             <h2>Employee Management</h2>
             <h6>Manage all your existing employees or add new employee </h6>
+            
           </div>
           <div id="emp-top-right">
             <Link className="btn btn-primary" id="linkbtn" to="/addemployee">

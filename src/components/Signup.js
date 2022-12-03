@@ -1,8 +1,50 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../css/signup.css";
+import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 export default class SignUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { username: "", email: "", password: "", navigate: false };
+  }
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { username, email, password } = this.state;
+    if (username && password && email) {
+      this.signup(username, email, password);
+      this.state.navigate = true;
+    } else {
+      alert("fields cannot be empty");
+    }
+  };
+
+  signup = async (username, email, password) => {
+    const baseUrl =
+      "https://101315952comp3123assignment1-production.up.railway.app/";
+    const signup = `${baseUrl}api/user/signup`;
+    axios
+      .post(signup, {
+        username: username,
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        alert(res.data + " please login");
+        return true;
+      })
+      .catch((error) => {
+        alert("oh oh.. somethin went wrong", error.message);
+        console.log(error);
+        return false;
+      });
+  };
   render() {
     return (
       <div id="signup-container">
@@ -13,7 +55,7 @@ export default class SignUp extends Component {
 
         <div id="right-side">
           <div id="form-container">
-            <form id="myform">
+            <form onSubmit={this.handleSubmit} id="myform">
               <div id="top-form">
                 <div id="go-under"></div>
                 <h3>Register Today </h3>
@@ -29,6 +71,9 @@ export default class SignUp extends Component {
                   type="text"
                   className="form-control"
                   placeholder="user name "
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleChange}
                 />
 
                 <div className="mb-3">
@@ -37,6 +82,9 @@ export default class SignUp extends Component {
                     type="email"
                     className="form-control"
                     placeholder="Enter email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -45,6 +93,9 @@ export default class SignUp extends Component {
                     type="password"
                     className="form-control"
                     placeholder="Enter password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
                   />
                 </div>
 

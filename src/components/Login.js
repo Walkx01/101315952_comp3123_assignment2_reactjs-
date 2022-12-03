@@ -1,18 +1,37 @@
-import React, { Component } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "../css/login.css";
 import icon from "./icon9.png";
 import { useState } from "react";
+import { UserContext } from "./userContext";
+import { redirect } from "react-router-dom";
 
 export default function Login() {
+  const user = useContext(UserContext);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.prevenDefault();
-    console.log(username, " pass ", password);
+    e.preventDefault();
+    console.log(username, password);
+    if (true) {
+      setLoggedIn = true;
+    } else {
+      alert("wrong user name or password");
+    }
   };
+
+  // if user is already logged in but navigate to login page redirect to home/employee page
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loggedIn) {
+      navigate("/employees");
+    }
+  });
+
   return (
     <div id="signup-container">
       <div id="left-side">
@@ -22,7 +41,12 @@ export default function Login() {
 
       <div id="right-side">
         <div id="form-container">
-          <form id="login-myform" onSubmit={handleSubmit}>
+          <form
+            id="login-myform"
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
+          >
             <div id="login-top-form">
               <h3>Start managing company employees efficiently</h3>
               <img id="icon" src={icon} alt="" />
@@ -34,6 +58,8 @@ export default function Login() {
                 type="text"
                 className="form-control"
                 placeholder="user name "
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
 
               <div className="mb-3">
@@ -42,15 +68,14 @@ export default function Login() {
                   type="password"
                   className="form-control"
                   placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
               <div className="d-grid">
                 <button type="submit" className="btn btn-primary">
-                  <Link id="linkbtn" to="/employees">
-                    {" "}
-                    Log in Now
-                  </Link>
+                  Log in Now
                 </button>
               </div>
             </div>
