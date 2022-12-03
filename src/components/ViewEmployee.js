@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function ViewEmployee() {
@@ -49,6 +49,9 @@ export default function ViewEmployee() {
           </tr>
         </thead>
       </table>
+      <Link className="btn btn-primary" id="linkbtn" to={"/employees"}>
+        back home
+      </Link>
     </>
   );
 }
