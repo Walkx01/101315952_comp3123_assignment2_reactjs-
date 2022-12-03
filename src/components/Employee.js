@@ -12,7 +12,6 @@ export default function Employee() {
   const [isLoading, setLoading] = useState(true);
   const [employeeList, setEmployeeList] = useState(null);
   const navigate = useNavigate();
-  var idselected = null;
 
   const baseUrl =
     "https://101315952comp3123assignment1-production.up.railway.app/";
@@ -56,7 +55,7 @@ export default function Employee() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [employeeList]);
 
   const loggedInUser = localStorage.getItem("user");
   if (isLoading) {

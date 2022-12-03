@@ -8,7 +8,7 @@ export default function AddEmployee() {
     first_name: "",
     last_name: "",
     email: "",
-    gender: "",
+    gender: "Other",
     salary: "",
   });
   const navigate = useNavigate();
@@ -35,6 +35,7 @@ export default function AddEmployee() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("data: ", employeeData);
     addemployee();
     navigate("/employees");
   };
@@ -99,6 +100,7 @@ export default function AddEmployee() {
           />
           <label htmlFor="gender">Cender:</label>
           <select name="gender" onChange={(e) => handleChange(e)} required>
+            <option value="Other">other</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>

@@ -51,15 +51,17 @@ export default function UpdateEMployee() {
         salary: salary,
       })
       .then((res) => {
-        alert(res.data);
+        console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
     update_emp(id);
+    setLoading(false);
     navigate("/employees");
   };
 
