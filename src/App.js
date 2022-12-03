@@ -23,7 +23,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="employees" element={<Employee />} />
           <Route path="addemployee" element={<AddEmployee />} />
-          <Route path="updateemployee" element={<UpdateEMployee />} />
+          <Route path="updateemployee/:id" element={<UpdateEMployee />} />
           <Route path="viewemployee/:id" element={<ViewEmployee />} />
           <Route path="test" element={<Test />} />
           <Route path="*" element={<Error />} />

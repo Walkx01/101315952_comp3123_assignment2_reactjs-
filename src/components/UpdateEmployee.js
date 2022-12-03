@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/addemployee.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 export default function UpdateEMployee() {
   // grab id from path param
   const { id } = useParams();
+  const [isLoading, setLoading] = useState(true);
   const [employeeData, setemployeeData] = useState({
     first_name: "",
     last_name: "",
@@ -15,7 +16,26 @@ export default function UpdateEMployee() {
     gender: "",
     salary: "",
   });
+
+  const baseUrl =
+    "https://101315952comp3123assignment1-production.up.railway.app/";
   const navigate = useNavigate();
+
+  // get employee
+  useEffect(() => getEmpbyid(id), []);
+
+  const getEmpbyid = (emp_id) => {
+    const emp_by_id = `${baseUrl}api/emp/employees/${emp_id}`;
+    axios
+      .get(emp_by_id)
+      .then((res) => {
+        setemployeeData(res.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   function update_emp(id) {
     const { first_name, last_name, email, gender, salary } = employeeData;

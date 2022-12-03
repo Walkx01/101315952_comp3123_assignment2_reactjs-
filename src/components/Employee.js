@@ -107,7 +107,9 @@ export default function Employee() {
                     <td>{val.last_name}</td>
                     <td>{val.email}</td>
                     <td id="emp-action">
-                      <button onClick={() => navigate("/updateemployee")}>
+                      <button
+                        onClick={() => navigate(`/updateemployee/${val._id}`)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
