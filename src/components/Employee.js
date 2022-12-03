@@ -64,7 +64,7 @@ export default function Employee() {
   }
   if (loggedInUser) {
     const jsonusr = JSON.parse(loggedInUser);
-    console.log(jsonusr.username);
+
     if (employeeList) {
       return (
         <div id="emp-container">
