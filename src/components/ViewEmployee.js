@@ -27,31 +27,36 @@ export default function ViewEmployee() {
       });
   };
 
-  if (isLoading) {
-    return <div> loading please wait or refresh</div>;
+  const loggedInUser = localStorage.getItem("user");
+  if (!loggedInUser) {
+    return <>access denied</>;
+  } else {
+    if (isLoading) {
+      return <div> loading please wait or refresh</div>;
+    }
+    return (
+      <>
+        <h3>Employee details</h3>
+        <table className="table table-striped">
+          <thead className="thead-dark">
+            <tr>
+              <th scope="col">Firstname</th>
+              <td>{myemp.first_name}</td>
+            </tr>
+            <tr>
+              <th scope="col">LastName</th>
+              <td>{myemp.last_name}</td>
+            </tr>
+            <tr>
+              <th scope="col">Email</th>
+              <td>{myemp.email}</td>
+            </tr>
+          </thead>
+        </table>
+        <Link className="btn btn-primary" id="linkbtn" to={"/employees"}>
+          back home
+        </Link>
+      </>
+    );
   }
-  return (
-    <>
-      <h3>Employee details</h3>
-      <table className="table table-striped">
-        <thead className="thead-dark">
-          <tr>
-            <th scope="col">Firstname</th>
-            <td>{myemp.first_name}</td>
-          </tr>
-          <tr>
-            <th scope="col">LastName</th>
-            <td>{myemp.last_name}</td>
-          </tr>
-          <tr>
-            <th scope="col">Email</th>
-            <td>{myemp.email}</td>
-          </tr>
-        </thead>
-      </table>
-      <Link className="btn btn-primary" id="linkbtn" to={"/employees"}>
-        back home
-      </Link>
-    </>
-  );
 }
