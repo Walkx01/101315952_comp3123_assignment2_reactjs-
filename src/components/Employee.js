@@ -36,12 +36,17 @@ export default function Employee() {
         <div id="emp-top">
           <div id="emp-top-left">
             <h2>Employee Management</h2>
-            <h6>Manage all your existing employees or add new employee </h6>
+            <h5>
+              Manage all your existing employees or 
+              <Link className="btn btn-primary"  id="emp-add-new" to="/addemployee">
+                add new Employee
+              </Link>{" "}
+            </h5>
           </div>
           <div id="emp-top-right">
-            <Link className="btn btn-primary" id="linkbtn" to="/addemployee">
-              add new Employee
-            </Link>
+            <button lassName="btn btn-primary" id="linkbtn">
+              log out
+            </button>
           </div>
         </div>
         <div id="emp-bottom">
