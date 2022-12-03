@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { getEmployees } from "./Connect.js";
 
 export default function Test() {
   const [isLoading, setLoading] = useState(true);
@@ -14,53 +13,29 @@ export default function Test() {
   gender: male ,
   salary:50000.00,
 }*/
-  function addemployee([firstname, lastname, email, gender, salary]) {
+  function addemployee(data) {
     const baseUrl =
       "https://101315952comp3123assignment1-production.up.railway.app/";
     const signup = `${baseUrl}api/emp/employees`;
     axios
-      .post(signup, {
-        first_name: firstname,
-        last_name: lastname,
-        email: email,
-        gender: gender,
-        salary: salary,
-      })
+      .post(signup, data)
       .then((res) => {
         alert(res.data);
       })
       .catch((error) => {
-        alert("oh oh.. somethin went wrong" + error.message);
         console.log(error);
       });
   }
 
-  //   addemployee(["walker", "altidor", "myemail@gmail.com", "Male", "50000"]);
+  const data = {
+    first_name: "Walker",
+    last_name: "Altidor",
+    email: "dfsergdthfyg@gmail.co4",
+    gender: "Female",
+    salary: "23453",
+  };
 
-  async function Loginuser(username, password) {
-    const baseUrl =
-      "https://101315952comp3123assignment1-production.up.railway.app/";
-    const signin = `${baseUrl}api/user/login`;
-    await axios
-      .post(signin, {
-        username: username,
-        password: password,
-      })
-      .then((res) => {
-        {
-          !res.data.status
-            ? alert(res.data.message)
-            : setLoggedIn(res.data.status);
-        }
-        setLoading(false);
-      })
-      .catch((error) => {
-        alert("oh oh.. somethin went wrong " + error.response.data.message);
-        console.log(error);
-      });
-  }
-
-  Loginuser("Mary Jane", "maryjanepassword");
+  addemployee(data);
 
   return (
     <>

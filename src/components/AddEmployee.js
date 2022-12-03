@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../css/addemployee.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 export default function AddEmployee() {
   const [employeeData, setemployeeData] = useState({
     first_name: "",
@@ -11,15 +11,17 @@ export default function AddEmployee() {
     gender: "",
     salary: "",
   });
+  const navigate = useNavigate();
 
-  function addemployee({ firstname, lastname, email, gender, salary }) {
+  function addemployee() {
+    const { first_name, last_name, email, gender, salary } = employeeData;
     const baseUrl =
       "https://101315952comp3123assignment1-production.up.railway.app/";
     const signup = `${baseUrl}api/emp/employees`;
     axios
       .post(signup, {
-        first_name: firstname,
-        last_name: lastname,
+        first_name: first_name,
+        last_name: last_name,
         email: email,
         gender: gender,
         salary: salary,
@@ -28,14 +30,13 @@ export default function AddEmployee() {
         alert(res.data);
       })
       .catch((error) => {
-        alert("oh oh.. somethin went wrong" + error.message);
         console.log(error);
       });
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(employeeData);
-    addemployee(employeeData);
+    addemployee();
+    navigate("/employees");
   };
 
   const handleChange = (e) => {
@@ -75,6 +76,7 @@ export default function AddEmployee() {
             name="first_name"
             value={employeeData.first_name}
             onChange={(e) => handleChange(e)}
+            required
           />
 
           <label htmlFor=""> Last Name</label>
@@ -84,6 +86,7 @@ export default function AddEmployee() {
             name="last_name"
             value={employeeData.last_name}
             onChange={(e) => handleChange(e)}
+            required
           />
           <label htmlFor=""> Email</label>
           <input
@@ -92,14 +95,10 @@ export default function AddEmployee() {
             name="email"
             value={employeeData.email}
             onChange={(e) => handleChange(e)}
+            required
           />
           <label htmlFor="gender">Cender:</label>
-          <select
-            name="gender"
-            value={employeeData.gender}
-            onChange={(e) => handleChange(e)}
-            required
-          >
+          <select name="gender" onChange={(e) => handleChange(e)} required>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
@@ -114,6 +113,7 @@ export default function AddEmployee() {
             name="salary"
             value={employeeData.salary}
             onChange={(e) => handleChange(e)}
+            required
           />
           <button className="btn btn-primary" type="submit">
             Save
@@ -125,6 +125,6 @@ export default function AddEmployee() {
       </div>
     );
   } else {
-     return <div>access denied</div>;
+    return <div>access denied</div>;
   }
 }
