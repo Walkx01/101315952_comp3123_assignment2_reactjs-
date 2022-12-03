@@ -57,7 +57,7 @@ export default function UpdateEMployee() {
     return (
       <div id="add-emp-container">
         <div id="top">
-          <h3> update employee</h3>
+          <h3> Update employee</h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
