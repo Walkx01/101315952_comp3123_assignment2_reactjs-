@@ -31,14 +31,17 @@ export default function Employee() {
       .delete(deleteemp)
       .then((res) => {
         alert(res.data);
+        window.location.reload(false);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const confirmDelete = (id) => {
-    let answer = window.confirm("are you sure you want to delete?");
+  const confirmDelete = (id, first, last) => {
+    let answer = window.confirm(
+      "are you sure you want to delete " + first + " " + last + " ?"
+    );
     if (answer) {
       deleteEmpBId(id);
     }
@@ -128,7 +131,11 @@ export default function Employee() {
                           />
                         </svg>
                       </button>
-                      <button onClick={() => confirmDelete(val._id)}>
+                      <button
+                        onClick={() =>
+                          confirmDelete(val._id, val.first_name, val.last_name)
+                        }
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"

@@ -30,12 +30,14 @@ export default function AddEmployee() {
         alert(res.data);
       })
       .catch((error) => {
+        if (error.response.data)
+          alert("error: employee not added: email already exists");
+
         console.log(error);
       });
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("data: ", employeeData);
     addemployee();
     navigate("/employees");
   };
@@ -77,6 +79,7 @@ export default function AddEmployee() {
             name="first_name"
             value={employeeData.first_name}
             onChange={(e) => handleChange(e)}
+            maxLength="100"
             required
           />
 
@@ -87,6 +90,7 @@ export default function AddEmployee() {
             name="last_name"
             value={employeeData.last_name}
             onChange={(e) => handleChange(e)}
+            maxLength="50"
             required
           />
           <label htmlFor=""> Email</label>
