@@ -51,6 +51,14 @@ export default function ViewEmployee() {
               <th scope="col">Email</th>
               <td>{myemp.email}</td>
             </tr>
+            <tr>
+              <th scope="col">Gender</th>
+              <td>{myemp.gender}</td>
+            </tr>
+            <tr>
+              <th scope="col">Salary</th>
+              <td>${myemp.salary}</td>
+            </tr>
           </thead>
         </table>
         <Link className="btn btn-primary" id="linkbtn" to={"/employees"}>

@@ -20,7 +20,6 @@ export default function Employee() {
     localStorage.clear();
     //  redirect to log in
     {
-      console.log(" logging you out now");
       navigate("/login");
     }
   };
@@ -53,6 +52,7 @@ export default function Employee() {
       .get(employees)
       .then((res) => {
         setEmployeeList(res.data);
+
         setLoading(false);
       })
       .catch((error) => {
@@ -68,7 +68,7 @@ export default function Employee() {
   if (loggedInUser) {
     const jsonusr = JSON.parse(loggedInUser);
 
-    if (employeeList) {
+    if (employeeList.length > 0) {
       return (
         <div id="emp-container">
           <div id="emp-top">
@@ -169,11 +169,27 @@ export default function Employee() {
         <div id="emp-container">
           <div id="emp-top">
             <div id="emp-top-left">
+              <h3> Welcome {jsonusr.username}</h3>
               <h2>Employee Management</h2>
-              <h6>Manage all your existing employees or add new employee </h6>
+              <h5>
+                Manage all your existing employees or
+                <Link
+                  className="btn btn-primary"
+                  id="emp-add-new"
+                  to="/addemployee"
+                >
+                  add new Employee
+                </Link>{" "}
+              </h5>
             </div>
             <div id="emp-top-right">
-              <button className="btn btn-primary"> add new Employee</button>
+              <button
+                onClick={(e) => handleLogout(e)}
+                className="btn btn-primary"
+                id="linkbtn"
+              >
+                log out
+              </button>
             </div>
           </div>
           <div id="no-emp-bottom">
@@ -183,7 +199,7 @@ export default function Employee() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-x-square"
+                className="bi bi-x-square"
                 viewBox="0 0 16 16"
               >
                 <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
@@ -194,7 +210,7 @@ export default function Employee() {
               <h4>
                 looks like we don't have any employees in our system to display
               </h4>
-              <h4>Start by adding an employee to start </h4>
+
               {/* <button > add new Employee</button> */}
               <Link className="btn btn-primary" id="linkbtn" to="/addemployee">
                 add new Employee
