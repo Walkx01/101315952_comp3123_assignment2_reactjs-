@@ -15,7 +15,7 @@ import { useState } from "react";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/101315952_comp3123_assignment2_reactjs-">
       <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
         <Routes>
           <Route path="" element={<Login />} />
