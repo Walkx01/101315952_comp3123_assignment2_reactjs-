@@ -13,8 +13,7 @@ export default function Employee() {
   const [employeeList, setEmployeeList] = useState(null);
   const navigate = useNavigate();
 
-  const baseUrl =
-    "https://101315952comp3123assignment1-production.up.railway.app/";
+  const baseUrl = "https://luxuriant-ambitious-stone.glitch.me/";
 
   const handleLogout = (e) => {
     localStorage.clear();

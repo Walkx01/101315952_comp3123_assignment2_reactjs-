@@ -6,8 +6,7 @@ import axios from "axios";
 export default function ViewEmployee() {
   const [myemp, setMyEmp] = useState();
   const [isLoading, setLoading] = useState(true);
-  const baseUrl =
-    "https://101315952comp3123assignment1-production.up.railway.app/";
+  const baseUrl = "https://luxuriant-ambitious-stone.glitch.me/";
 
   const { id } = useParams();
   const emp_id = id;

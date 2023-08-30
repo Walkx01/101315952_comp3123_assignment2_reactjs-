@@ -17,8 +17,7 @@ export default function UpdateEMployee() {
     salary: "",
   });
 
-  const baseUrl =
-    "https://101315952comp3123assignment1-production.up.railway.app/";
+  const baseUrl = "https://luxuriant-ambitious-stone.glitch.me/";
   const navigate = useNavigate();
 
   // get employee
@@ -39,8 +38,7 @@ export default function UpdateEMployee() {
 
   function update_emp(id) {
     const { first_name, last_name, email, gender, salary } = employeeData;
-    const baseUrl =
-      "https://101315952comp3123assignment1-production.up.railway.app/";
+    const baseUrl = "https://luxuriant-ambitious-stone.glitch.me/";
     const update_emp = `${baseUrl}api/emp/employees/${id}`;
     axios
       .put(update_emp, {

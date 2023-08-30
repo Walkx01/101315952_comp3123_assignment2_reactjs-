@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://101315952-comp-3123-assignment1.vercel.app/";
+const baseUrl = "https://luxuriant-ambitious-stone.glitch.me/";
 
 export async function getEmployees() {
   const employees = `${baseUrl}api/emp/employees`;

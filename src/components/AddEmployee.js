@@ -15,8 +15,7 @@ export default function AddEmployee() {
 
   function addemployee() {
     const { first_name, last_name, email, gender, salary } = employeeData;
-    const baseUrl =
-      "https://101315952comp3123assignment1-production.up.railway.app/";
+    const baseUrl = "https://luxuriant-ambitious-stone.glitch.me/";
     const signup = `${baseUrl}api/emp/employees`;
     axios
       .post(signup, {

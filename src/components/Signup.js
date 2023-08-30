@@ -27,7 +27,7 @@ export default class SignUp extends Component {
 
   signup = async (username, email, password) => {
     const baseUrl =
-      "https://101315952comp3123assignment1-production.up.railway.app/";
+      "https://luxuriant-ambitious-stone.glitch.me/";
     const signup = `${baseUrl}api/user/signup`;
     axios
       .post(signup, {
